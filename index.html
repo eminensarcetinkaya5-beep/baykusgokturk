@@ -8,15 +8,16 @@
     <style>
         :root {
             --purple-primary: #6b21a8;
+            --purple-dark: #4c1d95;
             --purple-light: #f3e8ff;
             --whatsapp-green: #25d366;
             --whatsapp-hover: #1da851;
             --status-open: #22c55e;
             --status-warning: #eab308;
             --status-closed: #ef4444;
-            --bg-light: #f8fafc;
+            --bg-light: #f1f5f9;
             --card-bg: #ffffff;
-            --text-dark: #1e293b;
+            --text-dark: #0f172a;
             --text-muted: #64748b;
         }
 
@@ -34,44 +35,46 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px 12px;
+            padding: 16px;
         }
 
         .container {
             width: 100%;
-            max-width: 520px;
+            max-width: 500px;
             background: var(--card-bg);
-            border-radius: 24px;
-            box-shadow: 0 12px 35px rgba(107, 33, 168, 0.12);
+            border-radius: 28px;
+            box-shadow: 0 20px 40px rgba(107, 33, 168, 0.15);
             overflow: hidden;
             border: 1px solid #e2e8f0;
         }
 
         /* HEADER & CANLI STATUS */
         .header {
-            background: linear-gradient(135deg, var(--purple-primary), #9333ea);
+            background: linear-gradient(135deg, var(--purple-primary), var(--purple-dark));
             color: white;
-            padding: 28px 20px 20px 20px;
+            padding: 32px 20px 24px 20px;
             text-align: center;
             position: relative;
         }
 
         .header .owl-icon {
-            font-size: 52px;
-            margin-bottom: 8px;
+            font-size: 56px;
+            margin-bottom: 10px;
             color: #fef08a;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
         }
 
         .header h1 {
             font-size: 24px;
             font-weight: 800;
-            margin-bottom: 4px;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
         }
 
         .header p {
-            font-size: 13px;
-            opacity: 0.92;
+            font-size: 13.5px;
+            opacity: 0.9;
+            font-weight: 400;
         }
 
         /* DURUM ROZETİ */
@@ -79,13 +82,13 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 6px 16px;
-            border-radius: 20px;
+            padding: 7px 18px;
+            border-radius: 30px;
             font-size: 13px;
             font-weight: 700;
-            margin-top: 14px;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-top: 16px;
+            background: #ffffff;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.12);
         }
 
         .status-dot {
@@ -96,27 +99,27 @@
         }
 
         .status-badge.open { color: #15803d; }
-        .status-badge.open .status-dot { background-color: var(--status-open); box-shadow: 0 0 8px var(--status-open); }
+        .status-badge.open .status-dot { background-color: var(--status-open); box-shadow: 0 0 10px var(--status-open); }
 
         .status-badge.warning { color: #a16207; }
-        .status-badge.warning .status-dot { background-color: var(--status-warning); box-shadow: 0 0 8px var(--status-warning); }
+        .status-badge.warning .status-dot { background-color: var(--status-warning); box-shadow: 0 0 10px var(--status-warning); }
 
         .status-badge.closed { color: #b91c1c; }
-        .status-badge.closed .status-dot { background-color: var(--status-closed); box-shadow: 0 0 8px var(--status-closed); }
+        .status-badge.closed .status-dot { background-color: var(--status-closed); box-shadow: 0 0 10px var(--status-closed); }
 
         /* İÇERİK */
         .content {
             padding: 24px;
         }
 
-        /* AFİŞ / GÖRSEL BİLGİLENDİRME BÖLÜMÜ */
+        /* AFİŞ / 4'LÜ TIKLANABİLİR GALERİ BÖLÜMÜ */
         .poster-section {
-            background: linear-gradient(135deg, #2e1065, #581c87);
+            background: linear-gradient(145deg, #1e1b4b, #3b0764);
             color: #fff;
-            border-radius: 18px;
-            padding: 20px;
-            margin-bottom: 24px;
-            box-shadow: 0 8px 20px rgba(88, 28, 135, 0.25);
+            border-radius: 20px;
+            padding: 18px;
+            margin-bottom: 22px;
+            box-shadow: 0 10px 25px rgba(76, 29, 149, 0.25);
         }
 
         .poster-header {
@@ -124,35 +127,53 @@
             align-items: center;
             gap: 10px;
             margin-bottom: 14px;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.15);
             padding-bottom: 10px;
         }
 
         .poster-header h2 {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             color: #fef08a;
+            letter-spacing: 0.3px;
         }
 
         .poster-gallery {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 14px;
+            gap: 12px;
         }
 
         .gallery-item {
             position: relative;
-            border-radius: 12px;
+            border-radius: 14px;
             overflow: hidden;
-            height: 110px;
-            border: 2px solid rgba(255,255,255,0.15);
+            height: 130px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item:active {
+            transform: scale(0.96);
+        }
+
+        .gallery-item:hover {
+            border-color: #fef08a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(254, 240, 138, 0.25);
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
         }
 
         .gallery-tag {
@@ -160,33 +181,22 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(15, 23, 42, 0.85);
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.7));
             color: #fff;
-            font-size: 11px;
-            padding: 4px;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .poster-features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
             font-size: 12px;
-        }
-
-        .feature-chip {
-            background: rgba(255, 255, 255, 0.12);
-            padding: 8px 10px;
-            border-radius: 8px;
+            padding: 7px 4px;
+            text-align: center;
+            font-weight: 700;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 6px;
-            font-weight: 500;
+            backdrop-filter: blur(2px);
         }
 
-        .feature-chip i {
+        .gallery-tag i {
             color: #fef08a;
+            font-size: 12px;
         }
 
         /* DİREKT WHATSAPP BUTONU */
@@ -196,7 +206,7 @@
             color: white;
             border: none;
             padding: 16px;
-            border-radius: 14px;
+            border-radius: 16px;
             font-size: 16px;
             font-weight: 700;
             cursor: pointer;
@@ -205,22 +215,23 @@
             justify-content: center;
             gap: 10px;
             text-decoration: none;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
-            margin-bottom: 20px;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+            margin-bottom: 22px;
         }
 
         .whatsapp-main-btn:hover {
             background-color: var(--whatsapp-hover);
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
         }
 
         /* HAFTALIK ÇALIŞMA SAATLERİ */
         .hours-section {
             background: #f8fafc;
-            border-radius: 14px;
+            border-radius: 16px;
             padding: 16px;
-            border: 1px solid #f1f5f9;
+            border: 1px solid #e2e8f0;
         }
 
         .hours-title {
@@ -237,25 +248,28 @@
             display: flex;
             flex-direction: column;
             gap: 6px;
-            font-size: 12.5px;
+            font-size: 13px;
         }
 
         .hours-item {
             display: flex;
             justify-content: space-between;
-            padding: 4px 0;
+            padding: 4px 8px;
+            border-radius: 6px;
             color: var(--text-muted);
+            transition: background 0.2s;
         }
 
         .hours-item.today {
             font-weight: 700;
             color: var(--purple-primary);
+            background: #f3e8ff;
         }
 
         /* FOOTER & İLETİŞİM */
         .footer {
-            background: #1e1b4b;
-            color: #e0e7ff;
+            background: #0f172a;
+            color: #cbd5e1;
             padding: 24px;
             font-size: 13px;
         }
@@ -265,7 +279,7 @@
             font-weight: 700;
             color: #fff;
             margin-bottom: 14px;
-            border-bottom: 1px solid #312e81;
+            border-bottom: 1px solid #334155;
             padding-bottom: 8px;
         }
 
@@ -279,45 +293,110 @@
 
         .contact-item i {
             width: 20px;
-            color: #a855f7;
+            color: #c084fc;
             font-size: 16px;
         }
 
         .contact-item a {
-            color: #e0e7ff;
+            color: #e2e8f0;
             text-decoration: none;
             transition: color 0.2s;
         }
 
         .contact-item a:hover {
-            color: #a855f7;
+            color: #fef08a;
         }
 
         .quick-actions {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
-            margin-top: 16px;
+            margin-top: 18px;
         }
 
         .action-btn {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
             color: #fff;
-            padding: 10px;
-            border-radius: 10px;
+            padding: 12px;
+            border-radius: 12px;
             text-align: center;
             text-decoration: none;
-            font-size: 12px;
+            font-size: 12.5px;
             font-weight: 600;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
-            transition: background 0.2s;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.2s;
         }
 
         .action-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255,255,255,0.25);
+        }
+
+        /* RESİM BÜYÜTME PENCERESİ (MODAL) */
+        .image-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .image-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .image-modal img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            object-fit: contain;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .modal-caption {
+            color: #fff;
+            margin-top: 18px;
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            background: rgba(255,255,255,0.2);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .close-modal:hover {
+            background: rgba(255,255,255,0.35);
         }
     </style>
 </head>
@@ -340,37 +419,43 @@
         <!-- İÇERİK -->
         <div class="content">
 
-            <!-- AFİŞ / GÖRSEL BİLGİLENDİRME BÖLÜMÜ -->
+            <!-- AFİŞ / 4'LÜ TIKLANABİLİR GALERİ -->
             <div class="poster-section">
                 <div class="poster-header">
-                    <i class="fa-solid fa-store" style="font-size: 20px; color: #fef08a;"></i>
-                    <h2>Baykuş Kırtasiye Mağazası</h2>
+                    <i class="fa-solid fa-store" style="font-size: 18px; color: #fef08a;"></i>
+                    <h2>Baykuş Kırtasiye Vitrini (Ürünler)</h2>
                 </div>
 
-                <!-- DÜKKAN GÖRSELLERİ -->
                 <div class="poster-gallery">
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1568822617270-2c1579f8dfe2?w=500&auto=format&fit=crop" alt="Göktürk Mağazamız">
-                        <div class="gallery-tag">Göktürk Mağazamız</div>
+                    <!-- OYUNCAK -->
+                    <div class="gallery-item" onclick="openModal('938609ef-9bfa-4cbc-b9fe-381ef3e982e0', 'Oyuncak & Hediye Bölümü')">
+                        <img src="938609ef-9bfa-4cbc-b9fe-381ef3e982e0" alt="Oyuncak" onerror="this.src='https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=500&auto=format&fit=crop'">
+                        <div class="gallery-tag"><i class="fa-solid fa-puzzle-piece"></i> Oyuncak</div>
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=500&auto=format&fit=crop" alt="Okul & Ofis Ürünleri">
-                        <div class="gallery-tag">Okul & Ofis Ürünleri</div>
-                    </div>
-                </div>
 
-                <!-- ÖNE ÇIKAN HİZMET BİLGİLERİ -->
-                <div class="poster-features">
-                    <div class="feature-chip"><i class="fa-solid fa-book"></i> Okul & Kitap</div>
-                    <div class="feature-chip"><i class="fa-solid fa-pen-ruler"></i> Kırtasiye Setleri</div>
-                    <div class="feature-chip"><i class="fa-solid fa-gift"></i> Oyuncak & Hediye</div>
-                    <div class="feature-chip"><i class="fa-solid fa-bag-shopping"></i> Çanta & Aksesuar</div>
+                    <!-- KİTAP -->
+                    <div class="gallery-item" onclick="openModal('1986f037-e3dc-4fff-862e-b56203d25953', 'Kitap & Hikaye Bölümü')">
+                        <img src="1986f037-e3dc-4fff-862e-b56203d25953" alt="Kitap" onerror="this.src='https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500&auto=format&fit=crop'">
+                        <div class="gallery-tag"><i class="fa-solid fa-book-open"></i> Kitap</div>
+                    </div>
+
+                    <!-- KIRTASİYE -->
+                    <div class="gallery-item" onclick="openModal('998db6a4-ac6e-4923-961c-7f82266b09e4', 'Kırtasiye Çeşitleri')">
+                        <img src="998db6a4-ac6e-4923-961c-7f82266b09e4" alt="Kırtasiye" onerror="this.src='https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=500&auto=format&fit=crop'">
+                        <div class="gallery-tag"><i class="fa-solid fa-pen-ruler"></i> Kırtasiye</div>
+                    </div>
+
+                    <!-- OFİS -->
+                    <div class="gallery-item" onclick="openModal('e641ee9c-74c5-425f-97c9-da65d9da8ddc', 'Ofis Malzemeleri')">
+                        <img src="e641ee9c-74c5-425f-97c9-da65d9da8ddc" alt="Ofis" onerror="this.src='https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop'">
+                        <div class="gallery-tag"><i class="fa-solid fa-briefcase"></i> Ofis</div>
+                    </div>
                 </div>
             </div>
 
             <!-- DİREKT WHATSAPP İLETİŞİM BUTONU -->
             <a href="https://api.whatsapp.com/send?phone=905527959090&text=Merhaba,%20Baykuş%20Kırtasiye%20web%20sitesinden%20ulaşıyorum." target="_blank" class="whatsapp-main-btn">
-                <i class="fa-brands fa-whatsapp" style="font-size: 24px;"></i>
+                <i class="fa-brands fa-whatsapp" style="font-size: 26px;"></i>
                 WhatsApp ile Mesaj Gönder
             </a>
 
@@ -378,13 +463,13 @@
             <div class="hours-section">
                 <div class="hours-title"><i class="fa-regular fa-clock"></i> Çalışma Saatlerimiz</div>
                 <div class="hours-list">
-                    <div class="hours-item" id="day-1"><span>Pazartesi</span> <span>08:00 - 20:30</span></div>
-                    <div class="hours-item" id="day-2"><span>Salı</span> <span>08:00 - 20:30</span></div>
-                    <div class="hours-item" id="day-3"><span>Çarşamba</span> <span>08:00 - 20:30</span></div>
-                    <div class="hours-item" id="day-4"><span>Perşembe</span> <span>08:00 - 20:30</span></div>
-                    <div class="hours-item" id="day-5"><span>Cuma</span> <span>08:00 - 20:30</span></div>
-                    <div class="hours-item" id="day-6"><span>Cumartesi</span> <span>09:30 - 20:00</span></div>
-                    <div class="hours-item" id="day-0"><span>Pazar</span> <span>09:30 - 20:00</span></div>
+                    <div class="hours-item" id="day-1"><span>Pazartesi[span_11](start_span)[span_11](end_span)</span> <span>08:00 - 20:30[span_12](start_span)[span_12](end_span)</span></div>
+                    <div class="hours-item" id="day-2"><span>Salı[span_13](start_span)[span_13](end_span)</span> <span>08:00 - 20:30[span_14](start_span)[span_14](end_span)</span></div>
+                    <div class="hours-item" id="day-3"><span>Çarşamba[span_15](start_span)[span_15](end_span)</span> <span>08:00 - 20:30[span_16](start_span)[span_16](end_span)</span></div>
+                    <div class="hours-item" id="day-4"><span>Perşembe[span_17](start_span)[span_17](end_span)</span> <span>08:00 - 20:30[span_18](start_span)[span_18](end_span)</span></div>
+                    <div class="hours-item" id="day-5"><span>Cuma[span_19](start_span)[span_19](end_span)</span> <span>08:00 - 20:30[span_20](start_span)[span_20](end_span)</span></div>
+                    <div class="hours-item" id="day-6"><span>Cumartesi[span_21](start_span)[span_21](end_span)</span> <span>09:30 - 20:00[span_22](start_span)[span_22](end_span)</span></div>
+                    <div class="hours-item" id="day-0"><span>Pazar[span_23](start_span)[span_23](end_span)</span> <span>09:30 - 20:00[span_24](start_span)[span_24](end_span)</span></div>
                 </div>
             </div>
         </div>
@@ -395,22 +480,22 @@
             
             <div class="contact-item">
                 <i class="fa-solid fa-location-dot"></i>
-                <span>Göktürk Merkez, Çeşmebaşı Cd. NO:37/B, 34077 Eyüpsultan/İstanbul</span>
+                <span>Göktürk Merkez, Çeşmebaşı Cd. NO:37/B, 34077 Eyüpsultan/İstanbul[span_25](start_span)[span_25](end_span)</span>
             </div>
 
             <div class="contact-item">
                 <i class="fa-solid fa-phone"></i>
-                <a href="tel:05527959090">0552 795 90 90</a>
+                <a href="tel:05527959090">0552 795 90 90[span_26](start_span)[span_26](end_span)</a>
             </div>
 
             <div class="contact-item">
                 <i class="fa-solid fa-envelope"></i>
-                <a href="mailto:baykusgokturk@gmail.com">baykusgokturk@gmail.com</a>
+                <a href="mailto:baykusgokturk@gmail.com">baykusgokturk@gmail.com[span_27](start_span)[span_27](end_span)</a>
             </div>
 
             <div class="contact-item">
                 <i class="fa-brands fa-instagram"></i>
-                <a href="https://instagram.com/baykuskirtasiye" target="_blank">@baykuskirtasiye</a>
+                <a href="https://instagram.com/baykuskirtasiye" target="_blank">@baykuskirtasiye[span_28](start_span)[span_28](end_span)</a>
             </div>
 
             <div class="quick-actions">
@@ -424,30 +509,34 @@
         </div>
     </div>
 
+    <!-- RESİM BÜYÜTME PENCERESİ (MODAL) -->
+    <div id="imageModal" class="image-modal" onclick="closeModal()">
+        <div class="close-modal"><i class="fa-solid fa-xmark"></i></div>
+        <img id="modalImg" src="" alt="Büyük Görsel">
+        <div id="modalCaption" class="modal-caption"></div>
+    </div>
+
     <script>
         // OTOMATİK ÇALIŞMA SAATİ KONTROL ALGORİTMASI
         function updateStoreStatus() {
             const now = new Date();
-            const day = now.getDay(); // 0: Pazar, 1: Pzt, ..., 6: Cmt
+            const day = now.getDay();
             const currentMinutes = now.getHours() * 60 + now.getMinutes();
 
-            // Günleri Vurgula
             document.querySelectorAll('.hours-item').forEach(el => el.classList.remove('today'));
             const todayEl = document.getElementById(`day-${day}`);
             if (todayEl) todayEl.classList.add('today');
 
-            // Saat Aralıkları (Dakika Cinsinden)
             let openTime = 8 * 60; // 08:00
             let closeTime = 20 * 60 + 30; // 20:30
 
-            if (day === 0 || day === 6) { // Hafta sonu (Cmt / Pzr)
+            if (day === 0 || day === 6) {
                 openTime = 9 * 60 + 30; // 09:30
                 closeTime = 20 * 60; // 20:00
             }
 
             const badge = document.getElementById('statusBadge');
             const statusText = document.getElementById('statusText');
-
             const warningWindowMinutes = 150; // Kapanışa 2.5 saat kala sarı uyarı
 
             if (currentMinutes >= openTime && currentMinutes < closeTime) {
@@ -462,6 +551,17 @@
                 badge.className = 'status-badge closed';
                 statusText.innerText = 'Şu an Kapalı';
             }
+        }
+
+        // RESİM BÜYÜTME (MODAL) FONKSİYONLARI
+        function openModal(imgSrc, caption) {
+            document.getElementById('modalImg').src = imgSrc;
+            document.getElementById('modalCaption').innerText = caption;
+            document.getElementById('imageModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').classList.remove('active');
         }
 
         updateStoreStatus();
