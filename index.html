@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baykuş Kırtasiye Göktürk - Sipariş & İstek Hattı</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --purple-primary: #6b21a8;
+            --purple-hover: #581c87;
+            --whatsapp-green: #25d366;
+            --whatsapp-hover: #1da851;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(107, 33, 168, 0.1);
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--purple-primary), #9333ea);
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header i.owl-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #fef08a;
+        }
+
+        .header h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 25px;
+        }
+
+        .info-box {
+            background: #f3e8ff;
+            border-left: 4px solid var(--purple-primary);
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: var(--purple-primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #475569;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            border-color: var(--purple-primary);
+            box-shadow: 0 0 0 3px rgba(107, 33, 168, 0.15);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .send-btn {
+            width: 100%;
+            background-color: var(--whatsapp-green);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+        }
+
+        .send-btn:hover {
+            background-color: var(--whatsapp-hover);
+            transform: translateY(-2px);
+        }
+
+        .send-btn:active {
+            transform: translateY(0);
+        }
+
+        .footer-info {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid #f1f5f9;
+            text-align: center;
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .footer-info p {
+            margin-bottom: 5px;
+        }
+
+        .footer-info i {
+            color: var(--purple-primary);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <i class="fa-solid fa-owl owl-icon"></i>
+            <h1>Baykuş Kırtasiye Göktürk</h1>
+            <p>Hızlı İstek & Sipariş Oluşturma Hattı</p>
+        </div>
+
+        <!-- İÇERİK / FORM -->
+        <div class="content">
+            <div class="info-box">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>İhtiyacınız olan kırtasiye ürünlerini veya liste detaylarını yazıp direkt WhatsApp'tan iletebilirsiniz.</span>
+            </div>
+
+            <div class="form-group">
+                <label for="customerName"><i class="fa-solid fa-user"></i> Adınız Soyadınız:</label>
+                <input type="text" id="customerName" placeholder="Örn: Ahmet Yılmaz">
+            </div>
+
+            <div class="form-group">
+                <label for="itemList"><i class="fa-solid fa-list-check"></i> İstekleriniz / Sipariş Listeniz:</label>
+                <textarea id="itemList" placeholder="Örn:&#10;- 2 adet A4 Kareli Defter&#10;- 1 paket Rotring 0.7 Uç&#10;- Renkli A4 fotokopi çıktısı..."></textarea>
+            </div>
+
+            <button class="send-btn" onclick="sendToWhatsApp()">
+                <i class="fa-brands fa-whatsapp" style="font-size: 22px;"></i>
+                Baykuş Kırtasiye'ye Gönder
+            </button>
+
+            <!-- İLETİŞİM BİLGİLERİ -->
+            <div class="footer-info">
+                <p><i class="fa-solid fa-location-dot"></i> Göktürk Merkez, Çeşmebaşı Cd. NO:37/B, Eyüpsultan/İstanbul</p>
+                <p><i class="fa-solid fa-phone"></i> WhatsApp / Tel: 0552 795 90 90</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sendToWhatsApp() {
+            const name = document.getElementById('customerName').value.trim();
+            const items = document.getElementById('itemList').value.trim();
+            const phone = "905527959090"; // Göktürk Baykuş Kırtasiye Numarası
+
+            if (!items) {
+                alert("Lütfen isteğinizi veya sipariş listenizi yazın!");
+                return;
+            }
+
+            // Süslü ve düzenli mesaj formatı
+            let formattedMessage = `🦉 *BAYKUŞ KIRTASİYE SİPARİŞ / İSTEK LİSTESİ*\n\n`;
+            
+            if (name) {
+                formattedMessage += `👤 *Müşteri:* ${name}\n`;
+            } else {
+                formattedMessage += `👤 *Müşteri:* Belirtilmedi\n`;
+            }
+
+            formattedMessage += `📍 *Konum:* Göktürk Siparişi\n\n`;
+            formattedMessage += `📝 *İhtiyaç & İstek Listesi:*\n${items}\n\n`;
+            formattedMessage += `✨ *Baykuş Kırtasiye Web Üzerinden Gönderildi.*`;
+
+            // WhatsApp Web / App Linki
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(formattedMessage)}`;
+            
+            // Yeni sekmede aç
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+                  </html>
+                  
